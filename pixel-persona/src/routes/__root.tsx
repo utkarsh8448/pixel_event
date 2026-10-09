@@ -11,7 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { describeError } from "../lib/error-capture";
 
 function NotFoundComponent() {
   return (
@@ -39,7 +39,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error(describeError(error));
   }, [error]);
 
   return (
@@ -80,12 +80,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Pixel Persona — Student Stories" },
       { name: "description", content: "The human story behind student life." },
-      { name: "author", content: "Lovable" },
       { property: "og:title", content: "Pixel Persona — Student Stories" },
       { property: "og:description", content: "The human story behind student life." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

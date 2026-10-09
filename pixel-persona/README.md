@@ -34,4 +34,4 @@ Sound starts muted. Enable sound for gentle effects and the browser’s optional
 
 Alex and his dialogue are fictional storytelling content, not a real person’s testimony. Support text is general wellbeing information, not clinical advice. The breathing exercise can be paused or stopped at any time.
 
-The downloadable source package includes local copies of media under `public/media`, so it can run independently of Lovable’s asset hosting. The editor project uses Lovable Assets for uploaded media.
+Media referenced from `src/assets` is bundled for local development and production builds.
